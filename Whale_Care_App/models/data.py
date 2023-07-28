@@ -1,54 +1,53 @@
-#data.py
+# data.py
 import re
+import mysql.connector as mysqlpy
 from models.connexion import Connexion
 
-
-class Data: 
+class Data:
+    def __init__(self):
+        self.connexion = Connexion()
 
     @staticmethod
     def is_valid_text(input_text):
         pattern = b"^[A-Za-z ]+$"  # Encode the pattern to bytes
         return re.match(pattern, input_text)
-    
-    @staticmethod
-    def set_form(nom, prenom, adresse, code_postal, ville, email, somme_recoltee, latitude, longitude):
-        cursor = Connexion.connexion()
+
+    def set_form(self, nom, prenom, adresse, code_postal, ville, email, somme_recoltee, latitude, longitude):
+        cursor = self.connexion.connexion()
 
         request = "INSERT INTO donateurs(nom, prenom, adresse, code_postal, ville, email, somme_recoltee, latitude, longitude) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s)"
         values = (nom, prenom, adresse, code_postal, ville, email, somme_recoltee, latitude, longitude)
 
         cursor.execute(request, values)
-        Connexion.deconnexion()
+        self.connexion.deconnexion()
 
-    @staticmethod
-    def get_donators():
-        cursor =  Connexion.connexion()
+    def get_donators(self):
+        cursor = self.connexion.connexion()
         query = "SELECT * FROM donateurs"
         cursor.execute(query)
         results = cursor.fetchall()
         donators = []
         for enregistrement in results:
             liste = []
-            liste.append(enregistrement[1]) #nom
-            liste.append(enregistrement[2]) #prenom
-            liste.append(enregistrement[3]) #adresse
-            liste.append(enregistrement[4]) #code_postal
-            liste.append(enregistrement[5]) #ville
-            liste.append(enregistrement[6]) #email
-            liste.append(enregistrement[7]) #somme_recoltee
+            liste.append(enregistrement[1])  # nom
+            liste.append(enregistrement[2])  # prenom
+            liste.append(enregistrement[3])  # adresse
+            liste.append(enregistrement[4])  # code_postal
+            liste.append(enregistrement[5])  # ville
+            liste.append(enregistrement[6])  # email
+            liste.append(enregistrement[7])  # somme_recoltee
             donators.append(liste)
-        Connexion.deconnexion()
+        self.connexion.deconnexion()
         return donators
 
-    @staticmethod
-    def get_total_sum():
-        cursor = Connexion.connexion()
+    def get_total_sum(self):
+        cursor = self.connexion.connexion()
 
         request = "SELECT SUM(somme_recoltee) FROM donateurs"
         cursor.execute(request)
 
         total_sum = cursor.fetchone()[0]
-        Connexion.deconnexion()
+        self.connexion.deconnexion()
 
         return total_sum
 

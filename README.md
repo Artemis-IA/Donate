@@ -1,4 +1,4 @@
-# Plateforme de Dons 🐳
+# 🐳Plateforme de Dons - Whale Care WebApp🐳
 
 La Plateforme de Dons est une application web basée sur Flask qui permet aux utilisateurs de faire des dons pour soutenir une cause spécifique. Les utilisateurs peuvent remplir un formulaire avec leurs informations, effectuer un don et voir la somme totale des dons récoltés ainsi que la liste des donateurs.
 

@@ -1,0 +1,38 @@
+.
+├── Cahier_des_charges-Plateforme_dons-Whale_Care.pdf
+├── Dons.sql
+├── FETCH_HEAD
+├── project_structure.txt
+├── README.md
+├── requirements.txt
+└── Whale_Care_App
+    ├── app.py
+    ├── models
+    │   ├── connexion.py
+    │   ├── data_manager.py
+    │   ├── data.py
+    │   ├── __pycache__
+    │   │   ├── connexion.cpython-38.pyc
+    │   │   ├── data.cpython-38.pyc
+    │   │   └── data_manager.cpython-38.pyc
+    │   └── validators.py
+    ├── __pycache__
+    │   └── data.cpython-311.pyc
+    ├── requirements.txt
+    ├── static
+    │   ├── animations.css
+    │   ├── images
+    │   │   ├── logo.png
+    │   │   ├── nyanwhale.gif
+    │   │   ├── whale_animation.gif
+    │   │   └── whale.png
+    │   └── style.css
+    └── templates
+        ├── base.html
+        ├── conditions_generales.html
+        ├── form.html
+        ├── greeting.html
+        ├── index.html
+        └── view.html
+
+8 directories, 28 files

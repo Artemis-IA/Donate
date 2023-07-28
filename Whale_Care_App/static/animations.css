@@ -1,0 +1,21 @@
+/* animations.css */
+@keyframes slideDown {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.slideDown {
+    animation: slideDown 1s ease-in-out;
+}
+
+.total-amount-container {
+    transition: opacity 1s ease-in-out, top 1s ease-in-out;
+}
+
+#map-container {
+    transition: opacity 1s ease-in-out, top 1s ease-in-out;
+}

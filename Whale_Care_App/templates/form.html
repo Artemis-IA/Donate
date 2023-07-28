@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<body>
+    {% extends 'base.html'%}
+    {% block content %}
+    <h1>{% block title %} Je remplis une promesse de dons{% endblock %}</h1>
+
+    <div class="form-container">
+        <form action="{{ url_for('form_collect')}}" method="POST">
+            <div class="form-group">
+                <label for="nom">Nom</label>
+                <input type="text" name="nom" placeholder="Nom" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="prenom">Prénom</label>
+                <input type="text" name="prenom" placeholder="Prénom" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="adresse">Adresse</label>
+                <input type="text" name="adresse" placeholder="Adresse" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="code_postal">Code postal</label>
+                <input type="number" name="code_postal" placeholder="Code postal" class="form-control" min="0" max="99999" required>
+            </div>
+            <div class="form-group">
+                <label for="ville">Ville</label>
+                <input type="text" name="ville" placeholder="Ville" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="mail">Adresse mail</label>
+                <input id="email" name="email" type="email" placeholder="prenom.nom@mail.fr" required="" pattern="[a-zA-Z]*.[a-zA-Z]*@[a-zA-Z]*.[a-zA-Z]*"><br>
+                <small>Exemple: prenom.nom@mail.fr</small>
+            </div>
+            <div class="form-group">
+                <label for="somme_recoltee">Promesse de don</label>
+                <input type="number" name="somme_recoltee" placeholder="Montant de mon don 🐋" class="form-control" min="0" max="999999999" step="0.01" required>
+            </div>
+            <div class="form-group">
+                <label for="conditions">J'ai lu et j'accepte les <a href="{{ url_for('conditions_generales') }}">conditions générales</a>:</label>
+                <input type="checkbox" name="conditions" required>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Envoyer</button>
+            </div>
+        </form>
+    </div>
+    {% endblock %}
+</body>
+</html>

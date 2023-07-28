@@ -1,0 +1,87 @@
+<!-- view.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compteur de dons</title>
+    <!-- Your Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    {% extends 'base.html' %}
+    {% block content %}
+    <h1>Compteur de dons</h1>
+
+
+<div class="container">
+    <div class="total-amount-container">
+        <h2 class="compteur">Somme totale récoltée: <span id="total-amount">{{ total_sum }}</span> €</h2>
+    </div>
+
+    <div class="animation-container">
+        <!-- Insérez ici votre code HTML ou votre balise pour l'animation -->
+        <img src="{{ url_for('static', filename='images/nyanwhale.gif') }}" alt="Animation" class="your-animation-class">
+    </div>
+
+    <div class="donators-container">
+        <!-- En-tête de la liste des donateurs -->
+        <div class="donators-header">
+            <h2>Liste des donateurs</h2>
+        </div>
+
+        <div id="donators-list">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Prénom</th>
+                        <th>Ville</th>
+                        <th>Email</th>
+                        <th>Somme récoltée</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for donator in donators %}
+                    <tr>
+                        <td>{{ donator[1] }}</td>
+                        <td>{{ donator[4] }}</td>
+                        <td>{{ donator[5] }}</td>
+                        <td>{{ donator[6] }} €</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+    <!-- code JavaScript -->
+    <script>
+        // Fonction pour animer le compteur
+        function animateCounter(target, start, end, duration) {
+            let current = start;
+            const range = end - start;
+            const stepTime = Math.abs(Math.floor(duration / range));
+            const timer = setInterval(function () {
+                current += range > 0 ? 1 : -1;
+                target.textContent = current;
+                if (current === end) {
+                    clearInterval(timer);
+                }
+            }, stepTime);
+        }
+
+        // Obtenir l'élément de la somme récoltée
+        const totalAmountElement = document.getElementById('total-amount');
+
+        // Obtenir la valeur réelle de la somme récoltée
+        const totalAmount = parseInt(totalAmountElement.textContent);
+
+        // Animer le compteur de 0 à la valeur réelle de la somme récoltée
+        animateCounter(totalAmountElement, 0, totalAmount, 1500); // 1500 ms (1.5 secondes) pour l'animation
+    </script>
+
+    {% endblock %}
+</body>
+</html>

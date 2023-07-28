@@ -1,0 +1,103 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'style.css') }}">
+    <title>Whale Care - Cétacé ces containers</title>
+</head>
+<body>
+{% extends 'base.html' %}
+
+{% block content %}
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2 class="news-title cause-title">Cétacé ces containers</h2>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="{{ url_for('static', filename='images/whale.png') }}" alt="Whales" class="img-fluid">
+                    <a href="{{ url_for('fill_form') }}"  class="btn btn-primary btn-animate">Donnez</a>
+
+                </div>
+                <div class="col-md-6">
+                    
+                    <h2 class="cause-title">Notre cause : <span class="hidden-link"><a href="https://www.docker.com/blog/call-me-moby-dock/">Moby Dock</a></span></h2>
+                    <p>
+                        Whale Care est une organisation à but non lucratif qui se consacre à la protection des baleines contre les effets néfastes de la surcharge des conteneurs. Le nombre croissant de conteneurs simultanés à proximité des habitats des baleines constitue une menace sérieuse pour ces créatures majestueuses.
+                    </p>
+                    <p>
+                        Notre mission est de sensibiliser à l'impact de la surcharge des conteneurs sur les baleines et de fournir un soutien et des soins indispensables aux populations de baleines affectées. Grâce à vos dons généreux, nous pouvons faire une différence significative dans la préservation de ces géants marins.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How You Can Help Section -->
+    <section class="help">
+        <div class="container">
+            <h2 class="news-title cause-title">Comment participer</h2>
+            <div class="row"> <!-- Add the 'row' class here -->
+                <div class="col-md-4">
+                    <div class="help-item">
+                        <i class="fas fa-hands-helping"></i>
+                        <h3>Donnez</h3>
+                        <p>Vos contributions soutiendront directement nos efforts de protection des baleines contre la surcharge des conteneurs. Chaque don, aussi petit soit-il, fait la différence.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="help-item">
+                        <i class="fas fa-heart"></i>
+                        <h3>Faites chanter les baleines</h3>
+                        <p>Aidez-nous à sensibiliser le public à cette question en partageant notre cause sur les médias sociaux et en encourageant d'autres personnes à s'impliquer.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="help-item">
+                        <i class="fas fa-hands"></i>
+                        <h3>Volontariat</h3>
+                        <p>Rejoignez notre équipe de bénévoles dévoués et participez activement à nos initiatives de protection des baleines.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Latest News Section -->
+<section class="latest-news">
+    <div class="container">
+        <h2 class="news-title">Actualités</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="news-item">
+                    <h4>Baleine DJ enflamme la piste de danse avec des conteneurs</h4>
+                    <p>Incroyable spectacle hier soir lorsque la baleine DJ "WhaleMix" a organisé une rave sous-marine épique. Elle a utilisé des conteneurs vides comme enceintes et a fait danser toute la vie marine pendant des heures ! Les poissons étaient fans de ses beats envoûtants !</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="news-item">
+                    <h4>Une baleine blanche repérée à la recherche du légendaire conteneur doré</h4>
+                    <p>Les océans s'agitent alors qu'une baleine blanche légendaire, surnommée "Moby Crate", se lance dans une quête épique pour trouver le mystérieux conteneur doré. Selon la légende, ce conteneur contiendrait des trésors inimaginables ! Qui sait ce qu'elle découvrira ?</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="news-item">
+                    <h4>Un gang de baleines truque des courses de conteneurs</h4>
+                    <p>Un groupe de baleines rusées a été pris en train de truquer des courses de conteneurs pour parier sur les gagnants. Leur stratégie ? Placer des crevettes à l'intérieur des conteneurs qu'elles veulent gagner ! Bien que peu orthodoxe, leur plan audacieux les a rendues riches en quelques courses seulement.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+</body>
+</html>
+

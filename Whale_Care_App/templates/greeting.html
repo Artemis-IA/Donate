@@ -1,0 +1,52 @@
+<!-- greeting.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🐳 Mille mercis !</title>
+    <style>
+        @keyframes waveAnimation {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 100% 0;
+            }
+        }
+
+        body {
+            height: 100vh;
+            background-color: #240144;
+            background-image: linear-gradient(90deg, #240144, #2b8580, #240144);
+            background-size: 200% 100%;
+            animation: waveAnimation 10s linear infinite;
+        }
+
+        .content-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+
+        .greeting-content {
+            text-align: center;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    {% extends 'base.html' %}
+        {% block content %}
+            <div class="content-wrapper">
+                <div class="greeting-content">
+                    <h2>{% block title %} Don réalisé 🐳 {% endblock %}</h2>
+                    <p>Moby Dock vous remercie !</p>
+                </div>
+            </div>
+    {% endblock %}
+    <meta http-equiv="refresh" content="5;url={{ url_for('view') }}">
+
+</body>
+</html>
